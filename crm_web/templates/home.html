@@ -13,7 +13,7 @@
 
 <div class="container my-4">
   {% if user.is_authenticated %}
-  <h1 class="text-center">Hello, world!</h1>
+  <h1 class="text-center">Hello, {{ user.username}}</h1>
   {% else %}
   <h1 class="text-center">Login</h1>
 

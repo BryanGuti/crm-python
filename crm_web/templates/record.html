@@ -2,8 +2,16 @@
 
 {% block content %}
 
-<div class="container my-4 d-flex justify-content-center">
+<div class="container my-4 d-flex align-items-center flex-column row-gap-3">
   <!-- <h1 class="text-center">Customer record</h1> -->
+  <div class="container w-50 px-0 d-flex justify-content-between">
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    <div class="container d-flex px-0 column-gap-3 justify-content-end">
+      <a href="#" class="btn btn-primary">Update</a>
+      <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
   <div class="card w-50" style="width: 18rem;">
     <div class="card-header text-center">
       <h4 class="card-title my-0">

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-4 d-flex justify-content-center">
+  <!-- <h1 class="text-center">Customer record</h1> -->
+  <div class="card w-50" style="width: 18rem;">
+    <div class="card-header text-center">
+      <h4 class="card-title my-0">
+        {{ customer_record.first_name }} {{ customer_record.last_name }}
+      </h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item d-flex column-gap-3">
+        <strong>Created at:</strong>
+        <span>{{ customer_record.created_at }}</span>
+      </li>
+      <li class="list-group-item d-flex column-gap-3">
+        <strong>Email: </strong>
+        <span>{{ customer_record.email }}</span>
+      </li>
+      <li class="list-group-item d-flex column-gap-3">
+        <strong>Phone: </strong>
+        <span>{{ customer_record.phone }}</span>
+      </li>
+      <li class="list-group-item d-flex column-gap-3">
+        <strong>City: </strong>
+        <span>{{ customer_record.city }}</span>
+      </li>
+      <li class="list-group-item d-flex column-gap-3">
+        <strong>Address: </strong>
+        <span>{{ customer_record.address }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

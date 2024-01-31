@@ -8,13 +8,49 @@
     {{ message }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
-  {% endfor%}
+  {% endfor %}
 {% endif %}
 
 <div class="container my-4">
   {% if user.is_authenticated %}
-  <h1 class="text-center">Hello, {{ user.username}}</h1>
-  {% else %}
+    <h1 class="text-center">Users</h1>
+    <div class="table-responsive">
+      <table class="table table-hover table-borderless">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% if records %}
+            {% for record in records %}
+              <tr>
+
+                <th scope="row">
+                  <a href="{% url 'record' record.id %}" class="link-underline link-underline-opacity-0 link-secondary">
+                    {{record.id}}
+                  </a>
+                </th>
+                <td>{{ record.first_name }}</td>
+                <td>{{ record.last_name }}</td>
+                <td>{{ record.email }}</td>
+                <td>{{ record.phone }}</td>
+                <td>{{ record.address }}</td>
+                <td>{{ record.city }}</td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
   <h1 class="text-center">Login</h1>
 
   <form method="POST" action="{% url 'home' %}">
